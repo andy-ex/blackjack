@@ -30,6 +30,10 @@ public class DeckHelper {
 		return deck;
 	}
 
+    /**
+     * Shuffles specified deck
+     * @param deck deck to shuffle
+     */
 	public static void shuffleDeck(Deck deck) {
         Card[] cards = new Card[deck.getCards().size()];
         List<Card> cardList = Arrays.asList(deck.getCards().toArray(cards));

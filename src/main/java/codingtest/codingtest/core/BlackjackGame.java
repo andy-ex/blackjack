@@ -11,7 +11,7 @@ import codingtest.codingtest.domain.Deck;
 import codingtest.codingtest.domain.player.Player;
 
 /**
- * This is the core class for game logic
+ * This is the class implementing Blackjack game
  */
 public class BlackjackGame implements Game {
 

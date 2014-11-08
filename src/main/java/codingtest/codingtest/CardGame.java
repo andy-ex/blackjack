@@ -46,22 +46,25 @@ public class CardGame {
 		}
 
 		Deck deck = DeckHelper.createDeck();
-		Game game;
+		Game game = null;
 
-		// LOG.info("Choose game (1-3)");
-		// int gameNumber = inputReader.nextInt();
-		// switch (gameNumber) {
-		// case 1:
-		game = new BlackjackGame();
-		// break;
-		// default:
-		// game = new BlackjackGame();
-		// break;
-		// }
+		// here you can put other games you want like poker, rummy;
+		// put them under case 2, case 3 etc.
+		while (game == null) {
+			LOG.info("Choose game: 1 - Black Jack");
+			int gameNumber = inputReader.nextInt();
+			switch (gameNumber) {
+			case 1:
+				game = new BlackjackGame();
+				break;
+			default:
+				LOG.info("Incorrect game number");
+				break;
+		}
+		}
 
 		Player winner = game.play(players, deck);
-		LOG.info("Winner " + winner.getName());
-		// Game game
+		LOG.info("WINNER: " + winner.getName());
 
     }
 }

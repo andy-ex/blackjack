@@ -14,8 +14,6 @@ public class Deck {
 	}
 
     public Card getNextCard() {
-		System.out.println(cards.size());
-		System.out.println(cards.get(0));
 		Card card = cards.get(0);
 		cards.remove(card);
 		return card;

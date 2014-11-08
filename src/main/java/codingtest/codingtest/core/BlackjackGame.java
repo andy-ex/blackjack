@@ -11,6 +11,11 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import codingtest.codingtest.core.util.DeckHelper;
+import codingtest.codingtest.domain.Card;
+import codingtest.codingtest.domain.Deck;
+import codingtest.codingtest.domain.player.Player;
+
 /**
  * This is the core class for game logic
  */
@@ -18,7 +23,6 @@ public class BlackjackGame implements Game {
 
     private static final Logger LOG = Logger.getLogger(Game.class.getName());
 
-    @Override
     public Player play(List<Player> players, Deck deck) {
         LOG.info("Starting Blackjack game");
 
@@ -34,6 +38,7 @@ public class BlackjackGame implements Game {
                 Card nextCard = deck.getNextCard();
                 LOG.info("Next card: " + nextCard);
                 player.addCard(nextCard);
+				total = player.getTotal();
             }
             if (total > 21) {
                 LOG.info("Player " + player.getName() + " went bust :(");
@@ -72,7 +77,6 @@ public class BlackjackGame implements Game {
 
     private Player determineWinner(List<Player> players) {
         Collections.sort(players, new Comparator<Player>() {
-            @Override
             public int compare(Player o1, Player o2) {
                 return o1.getTotal() - o2.getTotal();
             }

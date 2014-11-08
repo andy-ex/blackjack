@@ -11,11 +11,17 @@ public class Card {
     private CardType type;
     private CardSuit suit;
 
-    public CardType getType() {
-        return type;
-    }
+	public Card(CardType type, CardSuit suit) {
+		super();
+		this.type = type;
+		this.suit = suit;
+	}
 
-    public void setType(CardType type) {
+	public CardType getType() {
+		return type;
+	}
+
+	public void setType(CardType type) {
         this.type = type;
     }
 

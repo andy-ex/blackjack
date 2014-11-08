@@ -11,8 +11,8 @@ public class DeckHelper {
 
 	}
 
-	public static void shuffleDeck(List<Deck> deck) {
-        Collections.shuffle(deck);
+	public static void shuffleDeck(Deck deck) {
+        Collections.shuffle(deck.getCards());
 	}
 
 }

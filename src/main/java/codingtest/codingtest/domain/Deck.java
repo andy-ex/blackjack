@@ -1,24 +1,24 @@
 package codingtest.codingtest.domain;
 
-import java.util.LinkedList;
+import java.util.List;
 
 /**
  * This is the class that represents a deck of cards in a card game.
  */
 public class Deck {
 
-	private LinkedList<Card> cards;
+	private List<Card> cards;
 
-	public Deck(LinkedList<Card> cards) {
+	public Deck(List<Card> cards) {
 		super();
 		this.cards = cards;
 	}
 
-	public LinkedList<Card> getCards() {
+	public List<Card> getCards() {
         return cards;
     }
 
-	public void setCards(LinkedList<Card> cards) {
+	public void setCards(List<Card> cards) {
         this.cards = cards;
     }
 }

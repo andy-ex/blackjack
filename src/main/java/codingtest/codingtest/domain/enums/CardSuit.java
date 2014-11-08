@@ -7,4 +7,10 @@ public enum CardSuit {
 
     HEARTS, DIAMONDS, CLUBS, SPADES;
 
+    @Override
+    public String toString() {
+        return this.name();
+    }
+
+
 }

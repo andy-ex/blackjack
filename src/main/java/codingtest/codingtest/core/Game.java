@@ -8,6 +8,12 @@ import java.util.List;
 
 public interface Game {
 
-    public void play(List<Player> players, Deck deck);
+    /**
+     *
+     * @param players
+     * @param deck
+     * @return
+     */
+    public Player play(List<Player> players, Deck deck);
 
 }

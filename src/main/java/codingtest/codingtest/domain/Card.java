@@ -32,4 +32,9 @@ public class Card {
     public void setSuit(CardSuit suit) {
         this.suit = suit;
     }
+
+    @Override
+    public String toString() {
+        return "Card[" + suit + ", " + type + "]";
+    }
 }

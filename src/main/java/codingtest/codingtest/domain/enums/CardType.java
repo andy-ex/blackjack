@@ -1,4 +1,4 @@
-package codingtest.codingtest.domain;
+package codingtest.codingtest.domain.enums;
 
 public enum CardType {
 

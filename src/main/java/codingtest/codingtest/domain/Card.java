@@ -1,5 +1,8 @@
 package codingtest.codingtest.domain;
 
+import codingtest.codingtest.domain.enums.CardSuit;
+import codingtest.codingtest.domain.enums.CardType;
+
 /**
  * This is the domain class that represents a card in a card game.
  */

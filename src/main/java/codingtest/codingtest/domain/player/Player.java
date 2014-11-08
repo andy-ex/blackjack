@@ -26,6 +26,14 @@ public class Player {
 		return total;
 	}
 
+    /**
+     * Adds the card to the player's card list
+     * @param card card to be added
+     */
+    public void addCard(Card card) {
+        cards.add(card);
+    }
+
 	public List<Card> getCards() {
 		return cards;
 	}

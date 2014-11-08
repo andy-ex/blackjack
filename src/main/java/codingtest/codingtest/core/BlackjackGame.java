@@ -17,16 +17,15 @@ public class BlackjackGame implements Game {
 
     private static final Logger LOG = Logger.getLogger(Game.class.getName());
 
-	private int activePlayers;
 
     public Player play(List<Player> players, Deck deck) {
         LOG.info("Starting Blackjack game");
 
         init(players, deck);
-		activePlayers = players.size();
+		int activePlayers = players.size();
         for (Player player : players) {
             int total = player.getTotal();
-            LOG.info("Active player: " + player.getName());
+			LOG.info("Active player: " + player.getName() + ", Total: " + total);
 			if (activePlayers == 1) {
 				LOG.info("One player left in game");
                 return player;
@@ -36,7 +35,7 @@ public class BlackjackGame implements Game {
                 Card nextCard = deck.getNextCard();
                 player.addCard(nextCard);
 				total = player.getTotal();
-				LOG.info("Next card: " + nextCard + " , Current total: "
+				LOG.info("Next card: " + nextCard + ", Current total: "
 						+ total);
             }
             if (total > 21) {

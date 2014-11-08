@@ -73,7 +73,8 @@ public class CardGame {
 
 		// start the game and get a winner
 		Player winner = game.play(players, deck);
-		LOG.info("WINNER: " + winner.getName() + "  " + winner.getTotal());
+		LOG.info("WINNER: " + winner.getName() + ", Total: "
+				+ winner.getTotal());
 
     }
 }

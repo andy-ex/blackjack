@@ -5,6 +5,9 @@ import java.util.List;
 
 import codingtest.codingtest.domain.Card;
 
+/**
+ * This is the class that represents a player to play in a card game.
+ */
 public class Player {
 
 	private String name;

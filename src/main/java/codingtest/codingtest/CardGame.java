@@ -1,4 +1,4 @@
-package codingtest;
+package codingtest.codingtest;
 
 /**
  * Class that handles the playing of a card game from a simple command line interface,

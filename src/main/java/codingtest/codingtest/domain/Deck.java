@@ -1,4 +1,4 @@
-package codingtest.domain;
+package codingtest.codingtest.domain;
 
 /**
  * This is the class that represents a deck of cards in a card game.

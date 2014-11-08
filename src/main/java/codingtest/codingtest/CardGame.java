@@ -53,8 +53,7 @@ public class CardGame {
 		// put them under case 2, case 3 etc.
 		while (game == null) {
 			LOG.info("Choose game: 1 - Black Jack");
-//			int gameNumber = inputReader.nextInt();
-			int gameNumber = 1;
+			int gameNumber = inputReader.nextInt();
 			switch (gameNumber) {
 			case 1:
 				game = new BlackjackGame();

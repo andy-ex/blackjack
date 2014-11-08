@@ -12,5 +12,15 @@ public class CardGame {
      */
     public static void main(String[] args) {
 
+//        Player player;
+//        Player player;
+//        Player player;
+//
+//        BlackJack game;
+//
+//        game.addPlayers(List<player>);
+//
+//        game.start()
+
     }
 }

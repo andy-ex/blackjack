@@ -1,28 +1,31 @@
 package codingtest.codingtest.domain;
 
-import java.util.Queue;
+import java.util.List;
 
 /**
  * This is the class that represents a deck of cards in a card game.
  */
 public class Deck {
 
-	private Queue<Card> cards;
+	private List<Card> cards;
 
-	public Deck(Queue<Card> cards) {
-		super();
+	public Deck(List<Card> cards) {
 		this.cards = cards;
 	}
 
     public Card getNextCard() {
-        return cards.poll();
+		System.out.println(cards.size());
+		System.out.println(cards.get(0));
+		Card card = cards.get(0);
+		cards.remove(card);
+		return card;
     }
 
-	public Queue<Card> getCards() {
+	public List<Card> getCards() {
         return cards;
     }
 
-	public void setCards(Queue<Card> cards) {
+	public void setCards(List<Card> cards) {
         this.cards = cards;
     }
 }

@@ -48,16 +48,16 @@ public class CardGame {
 		Deck deck = DeckHelper.createDeck();
 		Game game;
 
-		LOG.info("Choose game (1-3)");
-		int gameNumber = inputReader.nextInt();
-		switch (gameNumber) {
-		case 1:
-			game = new BlackjackGame();
-			break;
-		default:
-			game = new BlackjackGame();
-			break;
-		}
+		// LOG.info("Choose game (1-3)");
+		// int gameNumber = inputReader.nextInt();
+		// switch (gameNumber) {
+		// case 1:
+		game = new BlackjackGame();
+		// break;
+		// default:
+		// game = new BlackjackGame();
+		// break;
+		// }
 
 		Player winner = game.play(players, deck);
 		LOG.info("Winner " + winner.getName());

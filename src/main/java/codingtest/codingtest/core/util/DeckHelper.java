@@ -1,6 +1,9 @@
 package codingtest.codingtest.core.util;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
 
 import codingtest.codingtest.domain.Card;
 import codingtest.codingtest.domain.Deck;
@@ -16,7 +19,7 @@ public class DeckHelper {
 	 */
 	public static Deck createDeck() {
 		Deck deck;
-		Queue<Card> cards = new PriorityQueue<Card>();
+		List<Card> cards = new LinkedList<Card>();
 		for (CardSuit suit : CardSuit.values()) {
 			for (CardType type : CardType.values()) {
 				Card card = new Card(type, suit);
@@ -32,10 +35,9 @@ public class DeckHelper {
         List<Card> cardList = Arrays.asList(deck.getCards().toArray(cards));
         Collections.shuffle(cardList);
 
-        Queue<Card> shuffledQueue = new PriorityQueue<Card>(cardList);
+		List<Card> shuffledQueue = new LinkedList<Card>(cardList);
 
         deck.setCards(shuffledQueue);
-
     }
 
 }

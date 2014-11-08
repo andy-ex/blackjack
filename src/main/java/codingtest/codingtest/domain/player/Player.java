@@ -1,5 +1,6 @@
 package codingtest.codingtest.domain.player;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import codingtest.codingtest.domain.Card;
@@ -7,10 +8,11 @@ import codingtest.codingtest.domain.Card;
 public class Player {
 
 	private String name;
-	private List<Card> cards;
+	private List<Card> cards = new LinkedList<Card>();
 	private boolean isActive = true;
 
 	public Player(String name) {
+		this.name = name;
 	}
 
 	/**

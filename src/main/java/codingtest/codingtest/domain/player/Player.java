@@ -6,12 +6,11 @@ import codingtest.codingtest.domain.Card;
 
 public class Player {
 
+	private String name;
 	private List<Card> cards;
-	private boolean isActive;
+	private boolean isActive = true;
 
-	public Player(List<Card> cards, boolean isActive) {
-		this.cards = cards;
-		this.isActive = isActive;
+	public Player(String name) {
 	}
 
 	/**
@@ -48,6 +47,14 @@ public class Player {
 
 	public void setActive(boolean isActive) {
 		this.isActive = isActive;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 }

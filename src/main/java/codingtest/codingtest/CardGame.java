@@ -3,7 +3,8 @@ package codingtest.codingtest;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import java.util.logging.Logger;
+
+import org.apache.log4j.Logger;
 
 import codingtest.codingtest.core.BlackjackGame;
 import codingtest.codingtest.core.Game;
@@ -52,7 +53,8 @@ public class CardGame {
 		// put them under case 2, case 3 etc.
 		while (game == null) {
 			LOG.info("Choose game: 1 - Black Jack");
-			int gameNumber = inputReader.nextInt();
+//			int gameNumber = inputReader.nextInt();
+			int gameNumber = 1;
 			switch (gameNumber) {
 			case 1:
 				game = new BlackjackGame();
@@ -64,7 +66,7 @@ public class CardGame {
 		}
 
 		Player winner = game.play(players, deck);
-		LOG.info("WINNER: " + winner.getName());
+		LOG.info("WINNER: " + winner.getName() + "  " + winner.getTotal());
 
     }
 }

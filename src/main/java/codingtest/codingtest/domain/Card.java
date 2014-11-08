@@ -1,27 +1,27 @@
 package codingtest.codingtest.domain;
 
 import codingtest.codingtest.domain.enums.CardSuit;
-import codingtest.codingtest.domain.enums.CardType;
+import codingtest.codingtest.domain.enums.CardRank;
 
 /**
  * This is the domain class that represents a card in a card game.
  */
 public class Card {
 
-    private CardType type;
+    private CardRank type;
     private CardSuit suit;
 
-	public Card(CardType type, CardSuit suit) {
+	public Card(CardRank type, CardSuit suit) {
 		super();
 		this.type = type;
 		this.suit = suit;
 	}
 
-	public CardType getType() {
+	public CardRank getType() {
 		return type;
 	}
 
-	public void setType(CardType type) {
+	public void setType(CardRank type) {
         this.type = type;
     }
 

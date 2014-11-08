@@ -1,15 +1,9 @@
 package codingtest.codingtest.core;
 
-import codingtest.codingtest.core.util.DeckHelper;
-import codingtest.codingtest.domain.Card;
-import codingtest.codingtest.domain.Deck;
-import codingtest.codingtest.domain.player.Player;
-import org.apache.log4j.Logger;
-
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
+
+import org.apache.log4j.Logger;
 
 import codingtest.codingtest.core.util.DeckHelper;
 import codingtest.codingtest.domain.Card;
@@ -23,30 +17,39 @@ public class BlackjackGame implements Game {
 
     private static final Logger LOG = Logger.getLogger(Game.class.getName());
 
+	private int activePlayers;
+
     public Player play(List<Player> players, Deck deck) {
         LOG.info("Starting Blackjack game");
 
         init(players, deck);
-
+		activePlayers = players.size();
         for (Player player : players) {
             int total = player.getTotal();
             LOG.info("Active player: " + player.getName());
-            if (players.size() == 1) {
+			if (activePlayers == 1) {
+				LOG.info("One player left in game");
                 return player;
             }
             while (total < 17) {
+				LOG.info("**hit**");
                 Card nextCard = deck.getNextCard();
-                LOG.info("Next card: " + nextCard);
                 player.addCard(nextCard);
 				total = player.getTotal();
+				LOG.info("Next card: " + nextCard + " , Current total: "
+						+ total);
             }
             if (total > 21) {
-                LOG.info("Player " + player.getName() + " went bust :(");
-                players.remove(player);
+				LOG.info("**go bust**");
+				player.setActive(false);
+				activePlayers--;
+				continue;
             }
             if (total == 21) {
+				LOG.info("BLACK JACK!");
                 return player;
             }
+			LOG.info("**stick**");
         }
 
         LOG.info("Game finished. Determining winner...");
@@ -54,6 +57,7 @@ public class BlackjackGame implements Game {
         return determineWinner(players);
 
     }
+
 
     private void init(List<Player> players, Deck deck) {
         if (players == null || players.isEmpty()) {
@@ -71,17 +75,22 @@ public class BlackjackGame implements Game {
         for (Player player : players) {
             player.addCard(deck.getNextCard());
             player.addCard(deck.getNextCard());
-            LOG.info("Player: " + player.getName() + ", Cards: " + Arrays.toString(player.getCards().toArray()));
+			LOG.info("Player: " + player.getName() + ", Cards: "
+					+ Arrays.toString(player.getCards().toArray())
+					+ ", Total: " + player.getTotal());
         }
     }
 
     private Player determineWinner(List<Player> players) {
-        Collections.sort(players, new Comparator<Player>() {
-            public int compare(Player o1, Player o2) {
-                return o1.getTotal() - o2.getTotal();
-            }
-        });
+		Player winner = null;
+		int maxValue = 0;
+		for (Player player : players) {
+			if (player.isActive() && player.getTotal() > maxValue) {
+				maxValue = player.getTotal();
+				winner = player;
+			}
+		}
 
-        return players.get(0);
+		return winner;
     }
 }

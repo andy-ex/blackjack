@@ -8,7 +8,7 @@ import java.util.List;
 import codingtest.codingtest.domain.Card;
 import codingtest.codingtest.domain.Deck;
 import codingtest.codingtest.domain.enums.CardSuit;
-import codingtest.codingtest.domain.enums.CardType;
+import codingtest.codingtest.domain.enums.CardRank;
 
 public class DeckHelper {
 
@@ -21,7 +21,7 @@ public class DeckHelper {
 		Deck deck;
 		List<Card> cards = new LinkedList<Card>();
 		for (CardSuit suit : CardSuit.values()) {
-			for (CardType type : CardType.values()) {
+			for (CardRank type : CardRank.values()) {
 				Card card = new Card(type, suit);
 				cards.add(card);
 			}

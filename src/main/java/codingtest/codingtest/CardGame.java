@@ -28,6 +28,7 @@ public class CardGame {
      */
     public static void main(String[] args) {
 
+		// determining number of players
 		int numberOfPlayers;
 		if (args.length == 0) {
 			LOG.info("No number of players was specified, so number of players set to 3");
@@ -40,6 +41,7 @@ public class CardGame {
 			}
 		}
 
+		// initializing players
 		List<Player> players = new ArrayList<Player>();
 		for (int i = 0; i < numberOfPlayers; i++) {
 			Player player = new Player("Player" + i);
@@ -53,6 +55,11 @@ public class CardGame {
 		// put them under case 2, case 3 etc.
 		while (game == null) {
 			LOG.info("Choose game: 1 - Black Jack");
+			if (!inputReader.hasNextInt()) {
+				LOG.info("Incorrect game number");
+				inputReader.next();
+				continue;
+			}
 			int gameNumber = inputReader.nextInt();
 			switch (gameNumber) {
 			case 1:
@@ -64,6 +71,7 @@ public class CardGame {
 		}
 		}
 
+		// start the game and get a winner
 		Player winner = game.play(players, deck);
 		LOG.info("WINNER: " + winner.getName() + "  " + winner.getTotal());
 

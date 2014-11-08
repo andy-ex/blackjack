@@ -1,18 +1,33 @@
 package codingtest.codingtest.core.util;
 
-import codingtest.codingtest.domain.Deck;
+import java.util.LinkedList;
 
-import java.util.Collections;
-import java.util.List;
+import codingtest.codingtest.domain.Card;
+import codingtest.codingtest.domain.Deck;
+import codingtest.codingtest.domain.enums.CardSuit;
+import codingtest.codingtest.domain.enums.CardType;
 
 public class DeckHelper {
 
-	public static void createDeck() {
-
+	/**
+	 * creates new deck with cards
+	 * 
+	 * @return
+	 */
+	public static Deck createDeck() {
+		Deck deck;
+		LinkedList<Card> cards = new LinkedList<Card>();
+		for (CardSuit suit : CardSuit.values()) {
+			for (CardType type : CardType.values()) {
+				Card card = new Card(type, suit);
+				cards.add(card);
+			}
+		}
+		deck = new Deck(cards);
+		return deck;
 	}
 
-	public static void shuffleDeck(Deck deck) {
-        Collections.shuffle(deck.getCards());
+	public static void shuffleDeck() {
 	}
 
 }

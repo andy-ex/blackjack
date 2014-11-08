@@ -1,5 +1,6 @@
 package codingtest.codingtest.core.util;
 
+import java.util.Collections;
 import java.util.LinkedList;
 
 import codingtest.codingtest.domain.Card;
@@ -27,7 +28,8 @@ public class DeckHelper {
 		return deck;
 	}
 
-	public static void shuffleDeck() {
-	}
+	public static void shuffleDeck(Deck deck) {
+        Collections.shuffle(deck.getCards());
+    }
 
 }

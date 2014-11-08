@@ -23,12 +23,12 @@ public class Game {
             throw new IllegalStateException("Please, provide any deck to make the game happened");
         }
 
-        DeckHelper.shuffleDeck(deck);
-
 
     }
 
     private void init() {
+        DeckHelper.shuffleDeck(deck);
+
 
     }
 

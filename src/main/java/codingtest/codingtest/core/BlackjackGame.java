@@ -4,12 +4,12 @@ import codingtest.codingtest.core.util.DeckHelper;
 import codingtest.codingtest.domain.Card;
 import codingtest.codingtest.domain.Deck;
 import codingtest.codingtest.domain.player.Player;
+import org.apache.log4j.Logger;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import java.util.logging.Logger;
 
 /**
  * This is the core class for game logic

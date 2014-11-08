@@ -1,9 +1,11 @@
 package codingtest.codingtest.core;
 
 import codingtest.codingtest.core.util.DeckHelper;
+import codingtest.codingtest.domain.Card;
 import codingtest.codingtest.domain.Deck;
 import codingtest.codingtest.domain.player.Player;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -18,23 +20,31 @@ public class BlackjackGame implements Game {
 
     @Override
     public Player play(List<Player> players, Deck deck) {
+        LOG.info("Starting Blackjack game");
+
         init(players, deck);
 
         for (Player player : players) {
             int total = player.getTotal();
+            LOG.info("Active player: " + player.getName());
             if (players.size() == 1) {
                 return player;
             }
             while (total < 17) {
-                player.addCard(deck.getNextCard());
+                Card nextCard = deck.getNextCard();
+                LOG.info("Next card: " + nextCard);
+                player.addCard(nextCard);
             }
             if (total > 21) {
+                LOG.info("Player " + player.getName() + " went bust :(");
                 players.remove(player);
             }
             if (total == 21) {
                 return player;
             }
         }
+
+        LOG.info("Game finished. Determining winner...");
 
         return determineWinner(players);
 
@@ -52,10 +62,11 @@ public class BlackjackGame implements Game {
         LOG.info("Shuffling deck...");
         DeckHelper.shuffleDeck(deck);
 
-
+        LOG.info("Handing initial cards...");
         for (Player player : players) {
             player.addCard(deck.getNextCard());
             player.addCard(deck.getNextCard());
+            LOG.info("Player: " + player.getName() + ", Cards: " + Arrays.toString(player.getCards().toArray()));
         }
     }
 

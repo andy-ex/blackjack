@@ -60,7 +60,7 @@ public class BlackjackGame implements Game {
     }
 
 
-    private void init(List<Player> players, Deck deck) {
+    protected void init(List<Player> players, Deck deck) {
         if (players == null || players.isEmpty()) {
             throw new IllegalStateException("Please, add players to the game");
         }
@@ -82,7 +82,7 @@ public class BlackjackGame implements Game {
         }
     }
 
-    private Player determineWinner(List<Player> players) {
+    protected Player determineWinner(List<Player> players) {
 		Player winner = null;
 		int maxValue = 0;
 		for (Player player : players) {

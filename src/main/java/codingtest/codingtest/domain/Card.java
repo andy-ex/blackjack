@@ -34,6 +34,26 @@ public class Card {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Card card = (Card) o;
+
+        if (suit != card.suit) return false;
+        if (type != card.type) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = type != null ? type.hashCode() : 0;
+        result = 31 * result + (suit != null ? suit.hashCode() : 0);
+        return result;
+    }
+
+    @Override
     public String toString() {
         return "Card[" + suit + ", " + type + "]";
     }

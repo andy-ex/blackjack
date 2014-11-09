@@ -62,4 +62,23 @@ public class Player {
 		this.name = name;
 	}
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Player player = (Player) o;
+
+        if (!cards.equals(player.cards)) return false;
+        if (!name.equals(player.name)) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = name.hashCode();
+        result = 31 * result + cards.hashCode();
+        return result;
+    }
 }

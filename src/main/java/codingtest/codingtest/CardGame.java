@@ -64,8 +64,8 @@ public class CardGame {
 				inputReader.next();
 				continue;
 			}
-			int gameNumber = inputReader.nextInt();
-			switch (gameNumber) {
+			int shuffleMethodNumber = inputReader.nextInt();
+			switch (shuffleMethodNumber) {
 			case 1:
 				shuffler = new SimpleShuffler();
 				break;

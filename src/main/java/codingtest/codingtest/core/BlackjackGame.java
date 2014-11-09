@@ -68,7 +68,7 @@ public class BlackjackGame implements Game {
         }
 
         LOG.info("Shuffling deck...");
-        DeckHelper.shuffleDeck(deck);
+		DeckHelper.getInstance().shuffleDeck(deck);
 
         LOG.info("Handing initial cards...");
         for (Player player : players) {

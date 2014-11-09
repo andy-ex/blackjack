@@ -48,7 +48,7 @@ public class CardGame {
 			players.add(player);
 		}
 
-		Deck deck = DeckHelper.createDeck();
+		Deck deck = DeckHelper.getInstance().createDeck();
 		Game game = null;
 
 		// here you can put other games you want like poker, rummy;

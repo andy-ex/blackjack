@@ -1,23 +1,34 @@
 package codingtest.codingtest.core.util;
 
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
+import codingtest.codingtest.core.util.shuffle.Shuffler;
 import codingtest.codingtest.domain.Card;
 import codingtest.codingtest.domain.Deck;
-import codingtest.codingtest.domain.enums.CardSuit;
 import codingtest.codingtest.domain.enums.CardRank;
+import codingtest.codingtest.domain.enums.CardSuit;
 
 public class DeckHelper {
+
+	// singleton
+	private static final DeckHelper INSTANCE = new DeckHelper();
+
+	private static Shuffler shuffler;
+
+	private DeckHelper() {
+	}
+
+	public static DeckHelper getInstance() {
+		return INSTANCE;
+	}
 
 	/**
 	 * creates new deck with cards
 	 * 
 	 * @return
 	 */
-	public static Deck createDeck() {
+	public Deck createDeck() {
 		Deck deck;
 		List<Card> cards = new LinkedList<Card>();
 		for (CardSuit suit : CardSuit.values()) {
@@ -34,14 +45,16 @@ public class DeckHelper {
      * Shuffles specified deck
      * @param deck deck to shuffle
      */
-	public static void shuffleDeck(Deck deck) {
-        Card[] cards = new Card[deck.getCards().size()];
-        List<Card> cardList = Arrays.asList(deck.getCards().toArray(cards));
-        Collections.shuffle(cardList);
-
-		List<Card> shuffledQueue = new LinkedList<Card>(cardList);
-
-        deck.setCards(shuffledQueue);
+	public void shuffleDeck(Deck deck) {
+		shuffler.shuffle(deck);
     }
+
+	public static Shuffler getShuffler() {
+		return shuffler;
+	}
+
+	public static void setShuffler(Shuffler shuffler) {
+		DeckHelper.shuffler = shuffler;
+	}
 
 }

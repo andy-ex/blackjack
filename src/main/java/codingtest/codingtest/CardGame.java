@@ -27,9 +27,11 @@ public class CardGame {
 	private static Scanner inputReader = new Scanner(System.in);
 
     /**
-     * Main. Plays a card game from a command line interface.
-     * @param args the arguments to the game
-     */
+	 * Main. Plays a card game from a command line interface.
+	 * 
+	 * @param first
+	 *            parameter - the number of players
+	 */
     public static void main(String[] args) {
 
 		// determining number of players

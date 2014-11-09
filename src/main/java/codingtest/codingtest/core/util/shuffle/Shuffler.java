@@ -4,6 +4,6 @@ import codingtest.codingtest.domain.Deck;
 
 public interface Shuffler {
 
-	void shuffle(Deck deck);
+	Deck shuffle(Deck deck);
 
 }

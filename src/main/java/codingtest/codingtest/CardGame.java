@@ -6,9 +6,13 @@ import java.util.Scanner;
 
 import org.apache.log4j.Logger;
 
-import codingtest.codingtest.core.BlackjackGame;
 import codingtest.codingtest.core.Game;
+import codingtest.codingtest.core.impl.BlackjackGame;
 import codingtest.codingtest.core.util.DeckHelper;
+import codingtest.codingtest.core.util.shuffle.Shuffler;
+import codingtest.codingtest.core.util.shuffle.impl.FaroShuffler;
+import codingtest.codingtest.core.util.shuffle.impl.RiffleShuffler;
+import codingtest.codingtest.core.util.shuffle.impl.SimpleShuffler;
 import codingtest.codingtest.domain.Deck;
 import codingtest.codingtest.domain.player.Player;
 
@@ -49,10 +53,38 @@ public class CardGame {
 		}
 
 		Deck deck = DeckHelper.getInstance().createDeck();
-		Game game = null;
+
+		// here you can put other shuffling mechanisms you want.
+		// put them under case 2, case 3 etc.
+		Shuffler shuffler = null;
+		while (shuffler == null) {
+			LOG.info("Choose game: 1 - Simple Shuffle; 2 - Riffle Shuffle; 3 - Faro Shuffle");
+			if (!inputReader.hasNextInt()) {
+				LOG.info("Incorrect shuffle method number");
+				inputReader.next();
+				continue;
+			}
+			int gameNumber = inputReader.nextInt();
+			switch (gameNumber) {
+			case 1:
+				shuffler = new SimpleShuffler();
+				break;
+			case 2:
+				shuffler = new RiffleShuffler();
+				break;
+			case 3:
+				shuffler = new FaroShuffler();
+				break;
+			default:
+				LOG.info("Incorrect shuffle method number");
+				break;
+			}
+		}
+		DeckHelper.setShuffler(shuffler);
 
 		// here you can put other games you want like poker, rummy;
 		// put them under case 2, case 3 etc.
+		Game game = null;
 		while (game == null) {
 			LOG.info("Choose game: 1 - Black Jack");
 			if (!inputReader.hasNextInt()) {

@@ -1,10 +1,11 @@
-package codingtest.codingtest.core;
+package codingtest.codingtest.core.impl;
 
 import java.util.Arrays;
 import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import codingtest.codingtest.core.Game;
 import codingtest.codingtest.core.util.DeckHelper;
 import codingtest.codingtest.domain.Card;
 import codingtest.codingtest.domain.Deck;

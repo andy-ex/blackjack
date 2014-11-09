@@ -1,20 +1,22 @@
-package codingtest.codingtest.core.util.shuffle;
+package codingtest.codingtest.core.util.shuffle.impl;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
+import codingtest.codingtest.core.util.shuffle.Shuffler;
 import codingtest.codingtest.domain.Card;
 import codingtest.codingtest.domain.Deck;
 
 /**
- * This name is just for 
- *
+ * All shufflers in this implementation of game use one algorithm, it is now
+ * only for possibility to choose
+ * 
  */
-public class SimpleShuffler implements Shuffler {
+public class FaroShuffler implements Shuffler {
 
-	public void shuffle(Deck deck) {
+	public Deck shuffle(Deck deck) {
 		Card[] cards = new Card[deck.getCards().size()];
 		List<Card> cardList = Arrays.asList(deck.getCards().toArray(cards));
 		Collections.shuffle(cardList);
@@ -22,6 +24,7 @@ public class SimpleShuffler implements Shuffler {
 		List<Card> shuffledQueue = new LinkedList<Card>(cardList);
 
 		deck.setCards(shuffledQueue);
+		return deck;
 	}
 
 }

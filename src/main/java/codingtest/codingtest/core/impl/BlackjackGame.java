@@ -25,14 +25,15 @@ public class BlackjackGame implements Game {
         init(players, deck);
 		int activePlayers = players.size();
         for (Player player : players) {
+			String playerName = player.getName();
             int total = player.getTotal();
-			LOG.info("Active player: " + player.getName() + ", Total: " + total);
+			LOG.info("Active player: " + playerName + ", Total: " + total);
 			if (activePlayers == 1) {
 				LOG.info("One player left in game");
                 return player;
             }
             while (total < 17) {
-				LOG.info("**hit**");
+				LOG.info(playerName + " **hit**");
                 Card nextCard = deck.getNextCard();
                 player.addCard(nextCard);
 				total = player.getTotal();
@@ -40,7 +41,7 @@ public class BlackjackGame implements Game {
 						+ total);
             }
             if (total > 21) {
-				LOG.info("**go bust**");
+				LOG.info(playerName + " **go bust**");
 				player.setActive(false);
 				activePlayers--;
 				continue;
@@ -49,7 +50,7 @@ public class BlackjackGame implements Game {
 				LOG.info("BLACK JACK!");
                 return player;
             }
-			LOG.info("**stick**");
+			LOG.info(playerName + " **stick**");
         }
 
         LOG.info("Game finished. Determining winner...");
